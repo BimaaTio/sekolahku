@@ -16,7 +16,7 @@
               <a href="/" class="text-base text-dark mx-8 py-2 flex {{ ($title === "Home" ? 'text-primary' : '') }} group-hover:text-primary dark:text-white">Beranda</a>
             </li>
             <li class="group">
-              <a href="/berita" class="text-base text-dark mx-8 py-2 flex {{ ($title === "Berita" ? 'text-primary' : '') }} group-hover:text-primary dark:text-white">Berita</a>
+              <a href="/berita" class="text-base text-dark mx-8 py-2 flex {{ (str_contains($title, 'Berita') ? 'text-primary' : '') }} group-hover:text-primary dark:text-white">Berita</a>
             </li>
             <li class="group">
               <a href="/galeri" class="text-base text-dark mx-8 py-2 flex {{ ($title === "Galeri" ? 'text-primary' : '') }} group-hover:text-primary dark:text-white">Galeri</a>

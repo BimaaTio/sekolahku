@@ -14,9 +14,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $data = Berita::all()->where('status', 'publish');
+        $data = Berita::where('status', 'publish')->latest()->get();
         return view('home.berita', [
-            'title' => 'Berita',
+            'title' => 'Semua Berita',
             'data' => $data
         ]);
     }
@@ -51,9 +51,11 @@ class BeritaController extends Controller
     public function show(Berita $berita)
     {
         $title = $berita;
+        $data = Berita::with(['user', 'kategori'])->where('status', 'publish')->get();
         return view('home.single.berita', [
-            'title' => $title,
-            'data' => $berita
+            'title' => 'Semua Berita',
+            'data' => $berita,
+            'berita' => $data
         ]);
     }
 

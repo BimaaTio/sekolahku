@@ -12,6 +12,7 @@ class Berita extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with  = ['kategori', 'user'];
 
     public function kategori()
     {

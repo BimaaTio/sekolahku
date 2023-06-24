@@ -22,7 +22,7 @@ class BeritaSeeder extends Seeder
             'konten' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta minima debitis error incidunt aut. Soluta veniam quam numquam hic.',
             'user_id' => 1,
             'kategori_id' => 1,
-            'status' => 'pending',
+            'status' => 'publish',
             'foto' => 's1.jpg'
         ]);
 
@@ -31,9 +31,42 @@ class BeritaSeeder extends Seeder
             'slug' =>  Str::slug('berita 2'),
             'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             'konten' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta minima debitis error incidunt aut. Soluta veniam quam numquam hic.',
+            'user_id' => 2,
+            'kategori_id' => 2,
+            'status' => 'publish',
+            'foto' => 's1.jpg'
+        ]);
+
+        Berita::create([
+            'judul' => 'Berita 3',
+            'slug' =>  Str::slug('berita 3'),
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            'konten' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta minima debitis error incidunt aut. Soluta veniam quam numquam hic.',
+            'user_id' => 3,
+            'kategori_id' => 3,
+            'status' => 'publish',
+            'foto' => 's1.jpg'
+        ]);
+
+        Berita::create([
+            'judul' => 'Berita 4',
+            'slug' =>  Str::slug('berita 4'),
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            'konten' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta minima debitis error incidunt aut. Soluta veniam quam numquam hic.',
+            'user_id' => 2,
+            'kategori_id' => 2,
+            'status' => 'publish',
+            'foto' => 's1.jpg'
+        ]);
+
+        Berita::create([
+            'judul' => 'Berita 5',
+            'slug' =>  Str::slug('berita 5'),
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            'konten' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta minima debitis error incidunt aut. Soluta veniam quam numquam hic.',
             'user_id' => 1,
-            'kategori_id' => 1,
-            'status' => 'pending',
+            'kategori_id' => 4,
+            'status' => 'publish',
             'foto' => 's2.jpg'
         ]);
     }

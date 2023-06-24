@@ -13,6 +13,9 @@
     rewind: true,
   }).mount();
 
+
+
+
   // fn send mail
   (function() {
     emailjs.init("gVyNaDiy1Xocm2JOi");

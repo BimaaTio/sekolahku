@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
-use Illuminate\Http\Request;
+use App\Models\Jurusan;
+use App\Http\Requests\StoreJurusanRequest;
+use App\Http\Requests\UpdateJurusanRequest;
 
-class KategoriController extends Controller
+class JurusanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $data = Kategori::all();
-        return view('home.kategori', [
-            'title' => 'Berita Kategori',
-            'data' => $data,
+        return view('home.jurusan', [
+            'title' => 'Jurusan',
+            'data' => Jurusan::all(),
         ]);
     }
 
@@ -34,10 +34,10 @@ class KategoriController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreJurusanRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreJurusanRequest $request)
     {
         //
     }
@@ -45,25 +45,24 @@ class KategoriController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kategori  $kategori
+     * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function show(Kategori $kategori)
+    public function show(Jurusan $jurusan)
     {
-        $title = $kategori;
-        return view('home.berita', [
-            'title' => "Kategori Berita : $kategori->nama",
-            'data' => $kategori->berita->load('kategori', 'user'),
+        return view('home.single.jurusan', [
+            'title' => $jurusan->nama,
+            'data' => $jurusan,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kategori  $kategori
+     * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $kategori)
+    public function edit(Jurusan $jurusan)
     {
         //
     }
@@ -71,11 +70,11 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kategori  $kategori
+     * @param  \App\Http\Requests\UpdateJurusanRequest  $request
+     * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(UpdateJurusanRequest $request, Jurusan $jurusan)
     {
         //
     }
@@ -83,10 +82,10 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kategori  $kategori
+     * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategori $kategori)
+    public function destroy(Jurusan $jurusan)
     {
         //
     }
