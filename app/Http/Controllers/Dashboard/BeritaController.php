@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\Berita;
+use App\Models\Kategori;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class BeritaController extends Controller
 {
@@ -15,7 +19,10 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.page.berita',);
+        $kategori = Kategori::all();
+        return view('dashboard.page.berita', [
+            'kategori' => $kategori,
+        ]);
     }
 
     /**
@@ -25,7 +32,10 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        // $kategori = Kategori::all();
+        // return view('dashboard.page.create.beritaCreate', [
+        //     'kategori' => $kategori
+        // ]);
     }
 
     /**
@@ -36,7 +46,16 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $berita = new Berita;
+        $berita->judul = $request->judul;
+        $berita->slug  = Str::slug($request->judul);
+        $berita->excerpt = Str::limit($request->konten, 30);
+        $berita->konten = $request->konten;
+        $berita->user_id = $request->user_id;
+        $berita->kategori_id = $request->kategori;
+        $berita->status = 'pending';
+        $berita->save();
+        return redirect('/dashboard/berita')->with('success', 'Berhasil Membuat Berita');
     }
 
     /**
@@ -56,9 +75,10 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita)
+    public function edit($id)
     {
-        //
+        $data = Berita::where('id', $id)->first();
+        return response()->json(['result' => $data]);
     }
 
     /**
@@ -81,6 +101,24 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+        Berita::destroy($berita->id);
+        return redirect('/dashboard/berita')->with('success', 'Berhasil menghapus berita!');
+    }
+
+    public function ajax()
+    {
+        $data = Berita::orderBy('judul', 'asc')->with(['user', 'kategori']);
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('aksi', function ($data) {
+                return view('template.partials.button')->with('data', $data);
+            })
+            ->editColumn('created_at', function ($request) {
+                return $request->created_at->toDayDateTimeString();
+            })
+            ->editColumn('status', function ($data) {
+                return view('template.partials.stat')->with('data', $data);
+            })
+            ->make(true);
     }
 }

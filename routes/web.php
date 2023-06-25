@@ -38,7 +38,7 @@ Route::get('berita/kategori/{kategori:slug}', [KategoriController::class, 'show'
 Route::get('/berita/post-by/{author:username}', function (User $author) {
     return view('home.berita', [
         'title' => "Berita dibuat oleh : $author->name",
-        'data' => $author->berita->load('kategori', 'user')
+        'data' => $author->berita->load('user', 'kategori')
     ]);
 });
 
@@ -53,3 +53,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::resource('/dashboard/berita', 'App\Http\Controllers\Dashboard\BeritaController')->middleware('auth');
+// Route::get('/dashboard/berita/edit-berita/{berita:slug}', 'App\Http\Controllers\Dashboard\BeritaController@edit');
+Route::get('bAjax', 'App\Http\Controllers\Dashboard\BeritaController@ajax');

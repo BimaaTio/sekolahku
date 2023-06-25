@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,13 +16,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $kategori = Kategori::all();
         $totalUser = User::with('roles')->role('user')->get()->count();
         $totalGuru = User::with('roles')->role('guru')->get()->count();
-        $totalBeritaActive = Berita::where('status', 'active')->count();
+        $totalBeritaActive = Berita::where('status', 'publish')->count();
         return view('dashboard.index', [
             'totalUser' => $totalUser,
             'totalGuru' => $totalGuru,
             'totalBeritaActive' => $totalBeritaActive,
+            'kategori' => $kategori,
 
         ]);
     }

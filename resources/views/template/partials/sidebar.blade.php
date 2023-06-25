@@ -35,10 +35,10 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Halaman Website</h6>
-        <a class="collapse-item" href="#">Berita</a>
-        <a class="collapse-item" href="#">Galeri</a>
-        <a class="collapse-item" href="#">Jurusan</a>
-        <a class="collapse-item" href="#">Prestasi</a>
+        <a class="collapse-item" href="/dashboard/berita">Berita</a>
+        <a class="collapse-item" href="/dashboard/galeri">Galeri</a>
+        <a class="collapse-item" href="/dashboard/jurusan">Jurusan</a>
+        <a class="collapse-item" href="/dashboard/prestasi">Prestasi</a>
       </div>
     </div>
   </li>

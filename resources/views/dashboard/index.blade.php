@@ -1,5 +1,5 @@
 @extends('template.app')
-@section('title', 'Dashboard')
+@section('title', 'Sekolahku')
 @section('content')
 <div class="row">
   <!-- Earnings (Monthly) Card Example -->

@@ -10,7 +10,7 @@
       @if($berita->count() > 0)
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         @foreach($berita as $b)
-        <div class="card glass rounded-xl ml-3 min-[550]:mb-20 md:mb-10 lg:mb-9 bg-base-100 shadow-lg dark:shadow-white">
+        <div class="card glass rounded-xl ml-3 mb-4 bg-base-100 shadow-lg dark:shadow-white">
           <figure><img src="/img/s1.jpg" width="500" alt="Shoes" /></figure>
           <div class="card-body">
             <h2 class="card-title">

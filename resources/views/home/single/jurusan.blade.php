@@ -1,7 +1,7 @@
 @extends('home.app')
 @section('title', 'Jurusan')
 @section('content')
-<section class="py-32 dark:bg-dark" data-aos="fade-up">
+<section class="py-32 dark:bg-dark">
   <div class="container dark:bg-secondary mt-3">
     <div class="flex w-full md:w-auto items-center space-x-4">
       <div class="flex-1 border-b border-primary mt-5 dark:border-white"></div>

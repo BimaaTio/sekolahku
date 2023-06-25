@@ -41,7 +41,5 @@
     </div>
   </div>
 </section>
-
-
 @include('home.partials.footer')
 @endsection

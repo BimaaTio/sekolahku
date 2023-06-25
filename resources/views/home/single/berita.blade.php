@@ -51,7 +51,9 @@
                   <ul>
                     <li><a href="" class="link">{{ $b->judul }}</a></li>
                     <li>
-                      <p class="text-sm">Post by: {{ $b->user->username }} </p>
+                      <a href="/berita/post-by/{{ $b->user->username }}">
+                        <p class="text-sm">Post by: {{ $b->user->username }} </p>
+                      </a>
                     </li>
                   </ul>
                 </td>
